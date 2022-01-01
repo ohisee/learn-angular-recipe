@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>I am in the app component</h3>
+      <hr />
+      <app-servers></app-servers>
+      <span>attribute selector</span>
+      <div app-attribute></div>
+      <span>class selector</span>
+      <div class="app-class"></div>
+    </div>
+  </div>
+</div>
+
+<input type="text" [(ngModel)]="name">
+<p>{{ name }}</p>
+
+<br>
+<br>
+
+<div class="container">
+  <app-cockpit (serverAdd)="onServerAdded($event)" (blueprintAdd)="onBlueprintAdded($event)"></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let element of serverElements" [serverElement]="element">
+        <!-- <ng-content></ng-content> from server-element\server-element.component.html -->
+        <p #contentParagraph>
+          <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+          <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+        </p>
+      </app-server-element>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li class="list-group-item" 
+            [ngClass]="{odd: a %2 !== 0}"
+            [ngStyle]="{backgroundColor: a %2 !== 0 ? 'yellow' : 'transparent'}" 
+            *ngFor="let a of oddNumbers">{{ a }}
+          </li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li class="list-group-item" 
+            [ngClass]="{odd: b % 2 !== 0}"
+            [ngStyle]="{backgroundColor: b %2 !== 0 ? 'yellow' : 'transparent'}" 
+            *ngFor="let b of evenNumbers">{{ b }}
+          </li>
+        </div>
+      </ul>
+      <ng-template [ngIf]="onlyOdd">
+        <p>Only odd</p>
+      </ng-template>
+      <br>
+      <div *appUnless="onlyOdd">
+        <p>Only even</p>
+      </div>
+      <br>
+      <div basicHighlight>Style this div element with basic directive</div>
+      <br>
+      <div appBetterHighlight>Style this div element with better directive</div>
+      <br>
+      <div appBetterHighlightHostListener>Style this div element with host listener</div>
+      <br>
+      <!-- <div appBetterHighlightHostBinding 
+        [defaultColor]="'yellow'" 
+        [highlightColor]="'red'">Style this div element with host binding</div> -->
+      <div [appBetterHighlightHostBinding]="'red'" [defaultColor]="'yellow'">Style this div element with host binding</div>
+      <br>
+      <div [appBetterHighlightHostBinding]="'red'" defaultColor="yellow">Style this div element with host binding</div>
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="1">Value is 1</p>
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="11">Value is 11</p>
+        <p *ngSwitchDefault>default value</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>

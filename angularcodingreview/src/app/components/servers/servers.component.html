@@ -1,0 +1,28 @@
+<label for="serverName">Server Name</label>
+<input type="text" name="serverName" class="form-control" (input)="onUpdateServerName($event)"/>
+<p>{{ serverName }}</p>
+
+<input type="text" class="form-control" [(ngModel)]="twoWayBindingServerName" />
+<p>{{ twoWayBindingServerName }}</p>
+
+<!-- property binding [] -->
+<!-- event binding () -->
+<button 
+  type="button" 
+  class="btn btn-primary" 
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()">Add Server</button>
+<p [innerText]="allowNewServer"></p>
+<p>{{ serverCreationStatus }}</p>
+
+<p *ngIf="serverCreated; else noServer">Server was created and server name is {{ twoWayBindingServerName }}</p>
+<!-- local reference # -->
+<ng-template #noServer>
+  <p>No server was created</p>
+</ng-template>
+<app-server *ngFor="let server of servers"></app-server>
+
+<p>Log item demo</p>
+<div *ngFor="let item of logItem; let i = index"
+  [ngStyle]="{backgroundColor: i >=4 ? 'blue' : 'transparent'}"
+  [ngClass]="{'highlight-text': i >= 4}">{{ item }}, {{ i }}</div>

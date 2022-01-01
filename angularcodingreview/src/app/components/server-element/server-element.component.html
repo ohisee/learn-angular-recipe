@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-header" #heading>{{ element.name }}</div>
+  <div class="card-body">
+    <div class="card-title">{{ element.name }}</div>
+    <div class="card-text">
+      <!-- hook (special directive) for render any elements here in another component -->
+      <!-- see app.component.html -->
+      <ng-content></ng-content>
+    </div>
+  </div>

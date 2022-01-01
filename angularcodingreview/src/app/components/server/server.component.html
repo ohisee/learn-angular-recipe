@@ -1,0 +1,6 @@
+<!-- string interpolation {{ }} -->
+<!-- use property binding [] on directive ngStyle -->
+<!-- use property binding [] on directive ngClass and a css class must be defined either in css file or inline -->
+<p 
+  [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{online: serverStatus === 'online'}">{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>
