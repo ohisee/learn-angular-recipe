@@ -6,7 +6,7 @@
 4. string interpolation
 5. View child
 6. Content child
-7. Structural directive, *ngIf, &ngFor
+7. Structural directive, *ngIf, *ngFor
 8. Attribute directive, [ngStyle], [ngClass]
 9. NgSwitch example
 10. ng-content projection example
