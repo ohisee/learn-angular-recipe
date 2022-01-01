@@ -9,5 +9,5 @@
 7. Structural directive, *ngIf, &ngFor
 8. Attribute directive, [ngStyle], [ngClass]
 9. NgSwitch example
-10. test cases
-
+10. ng-content projection example
+11. test cases
