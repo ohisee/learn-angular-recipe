@@ -1,0 +1,10 @@
+<h3>Operators page</h3>
+
+<div class="mb-3">
+  <label for="servermessage" class="form-label">Server Messager</label>
+  <input type="text" id="servermessage" class="form-control" name="servermessage" [(ngModel)]="message" />
+</div>
+
+<button class="btn btn-primary" (click)="onClickSwitchMap()">SwithMap and Tap</button>
+
+<p [ngStyle]="{marginTop: '16px'}" [ngClass]="{'error-message': errorOccurred}">{{ serverMessage }}</p>

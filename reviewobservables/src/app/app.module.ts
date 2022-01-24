@@ -8,6 +8,8 @@ import { UserComponent } from './components/user/user.component';
 import { CompleteComponent } from './components/complete/complete.component';
 import { ErrorComponent } from './components/error/error.component';
 import { SubjectComponent } from './components/subject/subject.component';
+import { OperatorsComponent } from './components/operators/operators.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { SubjectComponent } from './components/subject/subject.component';
     UserComponent,
     CompleteComponent,
     ErrorComponent,
-    SubjectComponent
+    SubjectComponent,
+    OperatorsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
