@@ -1,0 +1,57 @@
+<div [@clickedState]="animationState" (mousedown)="onMouseDown()" (click)="onClick()">
+</div>
+
+<p [@clickedState]="paragraphState" (click)="onParagraphClick()">Some text</p>
+
+<hr>
+
+<br><br>
+<input type="number" (input)="onInput($event)">
+<br><br>
+<span [@numberEnteredState]="numberEntered === 1 ? 'selected' : 'unselected' ">1</span>
+<span [@numberEnteredState]="numberEntered === 2 ? 'selected' : 'unselected' ">2</span>
+<span [@numberEnteredState]="numberEntered === 3 ? 'selected' : 'unselected' ">3</span>
+<span [@numberEnteredState]="numberEntered === 4 ? 'selected' : 'unselected' ">4</span>
+<span [@numberEnteredState]="numberEntered === 5 ? 'selected' : 'unselected' ">5</span>
+<span [@numberEnteredState]="numberEntered === 6 ? 'selected' : 'unselected' ">6</span>
+<span [@numberEnteredState]="numberEntered === 7 ? 'selected' : 'unselected' ">7</span>
+<span [@numberEnteredState]="numberEntered === 8 ? 'selected' : 'unselected' ">8</span>
+<span [@numberEnteredState]="numberEntered === 9 ? 'selected' : 'unselected' ">9</span>
+<span [@numberEnteredState]="numberEntered === 0 ? 'selected' : 'unselected' ">0</span>
+
+<br><br>
+<hr>
+<br><br>
+
+<button (click)="isShown = !isShown">Toggle Element</button>
+<p @showTextState *ngIf="isShown" class="text">You can see now</p>
+<p @showText *ngIf="isShown" class="text">You can see now using :enter and :leave</p>
+
+<button (click)="width = width - 50">Shrink</button>
+<button (click)="animate = true">Animate</button>
+<p [@animateState]="animate? 'some-state' : 'some-other-state'" [ngStyle]="{'width.px': width}" class="for_shrink"></p>
+
+<br>
+<hr>
+<br>
+
+<button (click)="onClickToAddElement()">Add Element</button>
+<div #resultsContainer>
+  <div 
+      *ngFor="let result of results" 
+      @showText class="results">{{ result }}</div>
+</div>
+
+<br>
+<hr>
+<br>
+
+<button (click)="onClickToAddElement2()">Add Element</button>
+<div #results2Container>
+  <div 
+      *ngFor="let result of results2" 
+      @listState 
+      (@listState.start)="onListStateAnimationStart($event)"
+      (@listState.done)="onListStateAnimationDone($event)"
+      class="results">{{ result }}</div>
+</div>

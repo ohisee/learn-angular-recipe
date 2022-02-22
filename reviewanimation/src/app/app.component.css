@@ -1,0 +1,34 @@
+div#simple {
+  width: 100px;
+  height: 100px;
+  background-color: #ff8f00;
+}
+
+span {
+  display: inline-block;
+  margin: 0 3px;
+}
+
+p.text {
+  border: 1px solid #cecbcb;
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 16px;
+  font-family: sans-serif;
+}
+
+p.for_shrink {
+  border: 1px solid #cecbcb;
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 16px 0;
+}
+
+div.results {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid #cecbcb;
+  border-radius: 5px;
+  background-color: lightblue;
+  font-family: sans-serif;
+}
