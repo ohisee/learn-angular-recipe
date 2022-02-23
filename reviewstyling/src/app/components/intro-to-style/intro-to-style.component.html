@@ -1,0 +1,33 @@
+<app-goal *ngFor="let goal of couseGoals" [goal]="goal" [ngClass]="{active: goal.isActiveGoal}"
+  (click)="goal.isActiveGoal = !goal.isActiveGoal"></app-goal>
+
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- see styles.css -->
+      <h3>My Quotes</h3>
+      <div class="interesting">
+        <!-- also see global style sheet to change styling -->
+        <!-- put class attr favorite inside :host like :host(.favorite) -->
+        <app-quote class="favorite" extraText="favorite with red border bottom"></app-quote>
+      </div>
+      <button class="btn btn-primary" (click)="onShowBoring(boringBlock)">Show boring quotes</button>
+      <div style="display: none" class="boring" #boringBlock>
+        <div id="very-boring">
+          <!-- also see global style sheet to change styling -->
+          <app-quote [extraText]="'boring class in :host-context()'"></app-quote>
+        </div>
+      </div>
+      <div class="ng-deep-example">
+        <app-quote [extraText]="'favorite in :host-context() ::ng-deep'"></app-quote>
+      </div>
+      <!-- quote element width is set in global styles.css -->
+      <app-quote (click)="isFavorite = !isFavorite" [extraText]="isFavorite ? 'favorite' : 'not favorite'"
+        [ngClass]="{'favorite': isFavorite}" [ngStyle]="{'width.px': isFavorite ? 600 : 300}">
+      </app-quote>
+      <!-- or this is also fine [ngStyle]="{'width': isFavorite ? '600px': '390px'} -->
+    </div>
+  </div>
+</div>

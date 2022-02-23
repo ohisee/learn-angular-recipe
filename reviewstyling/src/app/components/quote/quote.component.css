@@ -1,0 +1,42 @@
+h3 {
+  color: brown;
+}
+
+.quote {
+  border-top: 1px solid brown;
+  border-bottom: 1px solid brown;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+/* or without using a div */
+/* style the hosting element using :host */
+/* use pseudo selector host, wrapping the entire component */
+:host {
+  display: block;
+  border-bottom: 2px solid steelblue;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+/* quote component with class='favorite' */
+/* host only considers the element with .favorite class */
+:host(.favorite) {
+  border-bottom: 5px solid red;
+}
+
+/* see app.component.html */
+/* there is a wrapping div with .boring class attr containing quote */
+/* use :host-context(.bording) to style */
+:host-context(.boring #very-boring) {
+  border-bottom: 5px solid gold;
+  color: gray;
+}
+
+/* /deep/, >>> or ::ng-deep will be deprecated soon */
+/* only apply style to h3 elements */
+:host-context(.ng-deep-example) ::ng-deep h3 {
+  border-bottom: 2px solid #303330;
+  font-style: italic;
+  color: blueviolet;
+}

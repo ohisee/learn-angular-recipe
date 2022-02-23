@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+h3 {
+  font-size: 18px;
+  color: darkblue;
+  font-family: sans-serif;
+}
+
+/* style app-quote element */
+app-quote {
+  width: 300px;
+}

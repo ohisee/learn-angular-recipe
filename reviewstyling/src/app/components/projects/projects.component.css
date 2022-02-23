@@ -1,0 +1,62 @@
+/* by default component is inline level element */
+/* must change to block level element */
+:host {
+  display: block;
+}
+
+h3 {
+  color: #000;
+}
+
+.inactive {
+  border: 1px solid #9e9e9e;
+}
+
+/* second class overrides first class in css */
+.marked {
+  border: 2px solid #536dfe;
+  animation: marked;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes marked {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.loading-bar {
+  width: 300px;
+  height: 20px;
+  border: 1px solid #757575;
+  margin: auto;
+  border-radius: 3px;
+  box-sizing: content-box;
+}
+
+.loading-bar-element {
+  width: 0;
+  height: 20px;
+  background-color: #1565c0;
+  animation: projectLoading;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes projectLoading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

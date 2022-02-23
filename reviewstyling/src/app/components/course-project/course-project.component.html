@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="nav nav-pills">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" routerLink="." routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Projects</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" routerLink="users" routerLinkActive="active">Users</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row" [ngStyle]="{overflow: 'hidden'}">
+    <div class="col-xs-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

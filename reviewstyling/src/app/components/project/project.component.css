@@ -1,0 +1,36 @@
+:host {
+  display: block; /* default for :host is inline, so change to block */
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  box-shadow: 3px 3px 2px #ccc;
+  margin: 20px 0;
+  padding: 20px;
+  /* comment out for angular animation to avoid transition border color once more time */
+  /* transition: border-color 0.5s ease-out; */
+}
+
+:host .title {
+  color: #000;
+}
+
+/* for reference */
+/* should comment out for angular animation */
+:host(.marked) {
+  /* see projects.component.css */
+  /* projects.component.css has .marked styles with 2px border */
+  /* change padding to 19px to avoid jumping after clicking */
+  padding: 19px; 
+}
+
+:host(.inactive) {
+  color: #9e9e9e;
+}
+
+:host(.inactive) .title {
+  color: #9e9e9e;
+}
+
+.form-select {
+  display: inline-block;
+  width: 50%;
+}

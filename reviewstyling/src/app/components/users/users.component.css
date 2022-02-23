@@ -1,0 +1,5 @@
+/* by default component is inline level element */
+/* must change to block level element */
+:host {
+  display: block;
+}

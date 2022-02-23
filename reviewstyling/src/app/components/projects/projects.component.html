@@ -1,0 +1,50 @@
+<div class="row" [ngStyle]="{marginTop: '32px'}">
+  <div class="col-xs-12">
+    <h3>My Projects</h3>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-light" *ngIf="!createNew" (click)="createNew = true">Create new Project</button>
+    <button class="btn btn-danger" *ngIf="createNew" (click)="createNew = false">Cancel</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12" style="overflow: hidden">
+    <app-new-project 
+      *ngIf="createNew" 
+      (projectCreated)="onProjectCreated($event)"
+      (creationCancelled)="createNew = false"
+      @slideState></app-new-project>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="loading-bar" *ngIf="!projects.length && progress !== 'finished'">
+      <div class="loading-bar-element" *ngIf="progress !== 'finished'"></div>
+    </div>
+    <!-- use css animation -->
+    <!-- <app-project 
+      *ngFor="let prj of projects; let i = index" 
+      [project]="prj"
+      [ngClass]="{marked: markedPrjIndex === i, inactive: prj.status === 'inactive'}"
+      (statusUpdated)="onStatusUpdated($event, i)" 
+      (projectDeleted)="onProjectDeleted(i)" 
+      (click)="markedPrjIndex = i">
+    </app-project> -->
+    <!-- use angular animation -->
+    <app-project 
+      *ngFor="let prj of displayedProjects; let i = index" 
+      [project]="prj"
+      [ngClass]="{inactive: prj.status === 'inactive'}"
+      (statusUpdated)="onStatusUpdated($event, i)" 
+      (projectDeleted)="onProjectDeleted(i)" 
+      (click)="markedPrjIndex = i"
+      [@markedState]="markedPrjIndex === i ? 'marked-state' : 'default-state'"
+      [@itemState]="createNew ? 'slid-down' : 'slid-up'"
+      (@itemState.done)="onItemAnimationDone($event, i)">
+    </app-project>
+  </div>
+</div>

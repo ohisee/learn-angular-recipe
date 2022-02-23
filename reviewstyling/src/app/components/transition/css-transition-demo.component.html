@@ -1,0 +1,10 @@
+<div id="div1"
+  (click)="divClicked = true" 
+  [ngStyle]="{backgroundColor: divClicked ? 'red' : 'blue'}"
+  [ngClass]="{'clicked': divClicked}">
+</div>
+<hr>
+<div id="div2" 
+  (click)="startAnimate = true" 
+  [ngClass]="{'animate': startAnimate}">
+</div>

@@ -1,0 +1,43 @@
+div#div1 {
+  margin: 32px;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  transition: background-color 500ms ease-out 300ms, width 500ms ease-out 200ms;
+  /* transition: all 500ms ease-out 300ms; */
+}
+
+.clicked {
+  width: 300px;
+}
+
+div#div2 {
+  width: 150px;
+  height: 75px;
+  background-color: green;
+}
+
+.animate {
+  animation: moveDiv;
+  animation-duration: 6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveDiv {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(300px) scale(1.2);
+  }
+  75% {
+    transform: translateX(400px) scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(400px) scale(1);
+    opacity: 0.1;
+  }
+}

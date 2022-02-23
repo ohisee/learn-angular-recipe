@@ -1,0 +1,5 @@
+/* @see projects.component.html  */
+/* CSS translate only works on block level element, not inline level element */
+:host {
+  display: block;
+}

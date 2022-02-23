@@ -1,0 +1,16 @@
+/* host */
+:host {
+  display: inline-block;
+  border-bottom: 1px solid black;
+  box-shadow: 10px 5px 5px #888178;
+  border-radius: 5px 5px 0 0;
+  padding: 20px;
+  margin: 30px;
+  width: 300px;
+  text-align: center;
+}
+
+:host(.active) {
+  border-bottom: 2px solid blue;
+  /* padding: 18px; */
+}
