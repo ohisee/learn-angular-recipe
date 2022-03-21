@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h1 class="text-center">Angular 13 Animations</h1>
+      <hr>
+      <button (click)="showPanel = !showPanel" class="btn btn-primary">Show Panel</button>
+      <hr>
+      <div class="card" *ngIf="showPanel" [@cardState]="showParagraph">
+        <div class="card-header">Let's see what query does</div>
+        <div class="card-body">
+          <div class="card-text">
+            <p>query() gives you a lot of flexibility!</p>
+            <p *ngIf="showParagraph">You'll see!</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button (click)="showParagraph = !showParagraph" class="btn btn-primary">Toggle second paragraph</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h1 class="text-center">Angular 13 Animations</h1>
+      <div style="width: 200px; height: 50px; background-color: green" #theDiv></div>
+      <!-- #theDiv as local reference -->
+      <button class="btn btn-primary" (click)="animate(theDiv)">Animate it!</button>
+    </div>
+  </div>
+</div>
