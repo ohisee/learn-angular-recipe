@@ -6,3 +6,7 @@
 4. animate routing
 5. group
 6. keyframes
+7. animation and useAnimation functions
+8. route animations
+9. route animations using router outlet local reference
+10. animate child
