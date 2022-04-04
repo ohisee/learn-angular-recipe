@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: '', component: IntroToStyleComponent, pathMatch: 'full' },
   {
     path: 'course-project', component: CourseProjectComponent, children: [
-      { path: '', component: ProjectsComponent },
-      { path: 'users', component: UsersComponent },
+      { path: '', component: ProjectsComponent, data: {animation: {page: 'rootPage'}} },
+      { path: 'users', component: UsersComponent, data: {animation: {page: 'userPage'}} },
     ]
   },
   { path: 'transition', component: CssTransitionDemoComponent },
