@@ -12,8 +12,8 @@
     </div>
   </div>
   <div class="row" [ngStyle]="{overflow: 'hidden'}">
-    <div class="col-xs-12">
-      <router-outlet></router-outlet>
+    <div class="col-xs-12" [@routeState]="getAnimationData(rOutlet)">
+      <router-outlet #rOutlet="outlet"></router-outlet>
     </div>
   </div>
 </div>
