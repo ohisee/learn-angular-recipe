@@ -1,4 +1,4 @@
-<form (ngSubmit)="onCreateProject()" #f="ngForm">
+<form (ngSubmit)="onCreateProject()" #f="ngForm" [@formState]="f.value">
   <div class="form-group">
     <label for="name" class="control-label">Name</label>
     <input
