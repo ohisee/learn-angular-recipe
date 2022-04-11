@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate, keyframes } from "@angular/animations";
+import { trigger, state, style, transition, animate, keyframes, query, stagger } from "@angular/animations";
 
 export const markedTrigger = trigger('markedState', [
   state('default-state', style({
@@ -11,7 +11,7 @@ export const markedTrigger = trigger('markedState', [
     backgroundColor: '#b3e5fc',
     padding: '19px',
   })),
-  transition('default-state => marked-state',[
+  transition('default-state => marked-state', [
     style({
       border: '2px solid black',
       padding: '19px',
@@ -22,7 +22,7 @@ export const markedTrigger = trigger('markedState', [
     })),
     animate(200), // need this animate(200) for smooth transform scale(1.05)
   ]),
-  transition('marked-state => default-state',[
+  transition('marked-state => default-state', [
     style({
       border: '1px solid blue',
       padding: '20px',
@@ -61,11 +61,11 @@ export const itemStateTrigger = trigger('itemState', [
       }),
       style({
         opacity: 1,
-        transform: 'translateX(-15%)', 
+        transform: 'translateX(-15%)',
       }),
       style({
         opacity: 0,
-        transform: 'translateX(100%)', 
+        transform: 'translateX(100%)',
       }),
     ])),
   ]),
@@ -103,5 +103,35 @@ export const slideStateTrigger = trigger('slideState', [
     animate('300ms ease-out', style({
       transform: 'translateY(-100%)'
     })),
+  ]),
+]);
+
+export const listStateTrigger = trigger('listState', [
+  // listen to any state change, 
+  transition('* => *', [
+    // ':enter' query for any new entering element 
+    query(':enter', [
+      // initial step
+      style({
+        opacity: 0,
+        transform: 'translateX(-100%)'
+      }),
+      // first argument is initial delay,
+      // second argument is animation for each new entering item
+      stagger('300ms', [
+        animate('500ms ease-out', keyframes([
+          style({
+            opacity: 1,
+            transform: 'translateX(15%)',
+            offset: 0.4,
+          }),
+          style({
+            opacity: 1,
+            transform: 'translateX(0)',
+            offset: 1,
+          }),
+        ])),
+      ]),
+    ], { optional: true }),
   ]),
 ]);
