@@ -35,7 +35,8 @@
       (click)="markedPrjIndex = i">
     </app-project> -->
     <!-- use angular animation -->
-    <app-project 
+    <!-- use workaround for staggering animation, @see displayedProjects -->
+    <!-- <app-project 
       *ngFor="let prj of displayedProjects; let i = index" 
       [project]="prj"
       [ngClass]="{inactive: prj.status === 'inactive'}"
@@ -45,6 +46,20 @@
       [@markedState]="markedPrjIndex === i ? 'marked-state' : 'default-state'"
       [@itemState]="createNew ? 'slid-down' : 'slid-up'"
       (@itemState.done)="onItemAnimationDone($event, i)">
-    </app-project>
+    </app-project> -->
+    <!-- use angular latest staggering animation -->
+    <!-- use '* => *' in query, can be any state name -->
+    <div [@listState]="projects?.length"> 
+      <app-project 
+        *ngFor="let prj of projects; let i = index" 
+        [project]="prj"
+        [ngClass]="{inactive: prj.status === 'inactive'}"
+        (statusUpdated)="onStatusUpdated($event, i)" 
+        (projectDeleted)="onProjectDeleted(i)" 
+        (click)="markedPrjIndex = i"
+        [@markedState]="markedPrjIndex === i ? 'marked-state' : 'default-state'"
+        [@itemState]="createNew ? 'slid-down' : 'slid-up'">
+      </app-project>
+    </div>
   </div>
 </div>
