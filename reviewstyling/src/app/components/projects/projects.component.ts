@@ -5,14 +5,20 @@ import { takeUntil } from "rxjs/operators";
 
 import { Project } from './project.model';
 import { ProjectsService } from './projects.service';
-import { itemStateTrigger, markedTrigger, slideStateTrigger } from "./animations";
+import { itemStateTrigger, listStateTrigger, markedTrigger, slideStateTrigger } from "./animations";
 import { routeFadeStateTrigger } from '../shared/route-animations';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
-  animations: [markedTrigger, itemStateTrigger, slideStateTrigger, routeFadeStateTrigger],
+  animations: [
+    markedTrigger, 
+    itemStateTrigger, 
+    slideStateTrigger, 
+    routeFadeStateTrigger({ startOpacity: 0, duration: '200ms' }),
+    listStateTrigger,
+  ],
 })
 export class ProjectsComponent implements OnInit, OnDestroy {
   // use host binding to bind animation trigger
