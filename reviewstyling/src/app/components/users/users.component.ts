@@ -5,7 +5,10 @@ import { routeFadeStateTrigger, routeSlideStateTrigger } from '../shared/route-a
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
-  animations: [routeFadeStateTrigger, routeSlideStateTrigger]
+  animations: [
+    routeFadeStateTrigger({ startOpacity: 0, duration: '500ms' }), 
+    routeSlideStateTrigger
+  ]
 })
 export class UsersComponent implements OnInit {
 
