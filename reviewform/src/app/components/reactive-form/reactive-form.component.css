@@ -1,0 +1,22 @@
+.container {
+  margin-top: 30px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+div.user-data {
+  margin-bottom: 16px;
+}
+
+.input-invalid-feedback {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: .875em;
+  color: #f5172d;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
