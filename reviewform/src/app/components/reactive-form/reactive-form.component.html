@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form 
+        [formGroup]="signupForm!" (ngSubmit)="onSubmit()"
+        [ngClass]="{'was-validated' : signupForm?.invalid && signupForm?.touched}">
+        <div formGroupName="userData" class="user-data">
+          <div class="form-group">
+            <label for="username" class="form-label">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              class="form-control" 
+              formControlName="username" 
+              [required]="true"/>
+              <!-- need [required]="true" in order for bootstrap to show invalid style -->
+              <!-- required="signupForm?.get('userData.username')?.hasError('required')" -->
+            <span
+              *ngIf="signupForm?.get('userData.username')?.hasError('required') && signupForm?.get('userData.username')?.touched"
+              class="invalid-feedback">This field is required</span>
+            <span
+              *ngIf="signupForm?.get('userData.username')?.hasError('nameIsForbidden') && signupForm?.get('userData.username')?.touched"
+              class="input-invalid-feedback">This name is invalid</span>
+              <!-- <span *ngFor="let err of getErrors()">{{err}}</span>
+              <span>{{signupForm?.get('userData.username')?.hasError('nameIsForbidden')}}</span>
+              <span>{{signupForm?.get('userData.username')?.touched}}</span> -->
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">email</label>
+            <input 
+              type="text" 
+              id="email" 
+              class="form-control" 
+              formControlName="email" 
+              [required]="true" />
+              <!-- need [required]="true" in order for bootstrap to show invalid style -->
+            <span 
+              *ngIf="signupForm?.get('userData.email')?.invalid && signupForm?.get('userData.email')?.touched"
+              class="invalid-feedback">Please enter a valid email</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="street" class="form-label">Street</label>
+          <input 
+            type="text" 
+            id="street" 
+            class="form-control" 
+            formControlName="street" 
+            [required]="true" />
+          <!-- required="signupForm?.get('street')?.hasError('required')" -->
+          <span 
+            *ngIf="signupForm?.get('street')?.invalid && signupForm?.get('street')?.touched" 
+            class="invalid-feedback">Please enter a valid street address</span>
+        </div>
+        <div class="radio" *ngFor="let city of cities">
+          <input type="radio" [value]="city" formControlName="city" />
+          <label class="form-check-label"> {{ city }} </label>
+        </div>
+        <div formArrayName="hobbies">
+          <h3>Your Hobbies</h3>
+          <button class="btn btn-light" type="button" (click)="onClickAddHobby()">Add Hobby</button>
+          <div class="form-group" *ngFor="let control of getFormArrayControls(); let i = index">
+            <input type="text" class="form-control" [formControlName]="i">
+          </div>
+        </div>
+        <span *ngIf="signupForm?.invalid && signupForm?.touched" class="input-invalid-feedback">Please enter valid
+          data</span>
+        <br />
+        <div class="form-group">
+          <label for="citymenu" class="form-label">Cities</label>
+          <select class="form-select" name="citymenu" id="citymenu" formControlName="projectCity">
+            <option value="oakland">Oakland</option>
+            <option value="sunnyvale">Sunnyvale</option>
+            <option value="hayward">Hayward</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+        &nbsp;
+        <button class="btn btn-secondary" type="button" (click)="onClick()">Populate Data</button>
+      </form>
+    </div>
+  </div>
+</div>
