@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+    <p>Template driven approach using ngForm</p>
+    <!-- get access to JavaScript form object created by angular -->
+    <form (ngSubmit)="onSubmmit(form)" #form="ngForm"
+      [ngClass]="{'was-validated': !emailRef.valid && emailRef.touched}">
+      <div id="user-data" ngModelGroup="userData" #userDataRef="ngModelGroup">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <!-- add ngModel as a directive to this input as a control -->
+          <!-- add ngModel and a 'name' attr to register this input in JavaScript representation of this form  -->
+          <!-- add required attr to indicate this field needs some input -->
+          <input type="text" id="username" class="form-control" ngModel name="username" required
+            #usernameRef="ngModel" />
+        </div>
+        <div class="mb-3" [ngStyle]="{marginTop: '16px'}">
+          <label for="email" class="form-label">Mail</label>
+          <!-- add ngModel and a 'name' attr to register this input in JavaScript representation of this form  -->
+          <input type="email" id="email" class="form-control" ngModel name="email" required [email]=true
+            #emailRef="ngModel" />
+          <div class="invalid-feedback" *ngIf="!emailRef.valid && emailRef.touched">Please enter a valid email</div>
+        </div>
+      </div>
+      <p *ngIf="!userDataRef.valid && userDataRef.touched">User data is not valid (group)</p>
+      <div class="mb-3">
+        <label for="secret" class="form-label">Secret Questions</label>
+        <!-- add ngModel and a 'name' attr to register this input in JavaScript representation of this form  -->
+        <!-- use property binding on [ngModel] to set a default value -->
+        <select id="secret" class="form-select" [ngModel]="defaultQuestion" name="secret">
+          <option value="pet">Your first Pet?</option>
+          <option value="teacher">Your first teacher?</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="questionAnswer" class="form-label">Question Answer</label>
+        <textarea name="questionAnswer" id="questionAnswer" rows="3" class="form-control"
+          [(ngModel)]="answer"></textarea>
+      </div>
+      <p>Your reply: {{ answer }}</p>
+      <div class="form-check" *ngFor="let city of cities">
+        <input class="form-check-input" type="radio" name="city" ngModel [value]="city" required />
+        <label class="form-check-label" for="city">{{ city }}</label>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>
+  <hr>
+  <br>
+  <div class="row">
+    <p>Template driven approach using &#64;ViewChild</p>
+    <!-- note that #signupForm must be assigned to "ngForm" for view child to work -->
+    <form (ngSubmit)="onSubmitWithViewChild()" #signupForm="ngForm">
+      <div id="user-data" ngModelGroup="userData" #userDataRef="ngModelGroup">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <!-- add ngModel as a directive to this input as a control -->
+          <!-- add ngModel and a 'name' attr to register this input in JavaScript representation of this form  -->
+          <input type="text" id="username" class="form-control" ngModel name="username" required />
+        </div>
+        <button class="btn btn-success" type="button" (click)="suggestUserName()">Suggest an Username</button>
+        <br /><br />
+        <button class="btn btn-info" type="button" (click)="suggestUserNameUsingForm()">Suggest an Username (using form.patch function)</button>
+        <div class="mb-3" [ngStyle]="{marginTop: '16px'}">
+          <label for="email" class="form-label">Mail</label>
+          <!-- add ngModel and a 'name' attr to register this input in JavaScript representation of this form  -->
+          <input type="email" id="email" class="form-control" ngModel name="email" required [email]=true />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="secret" class="form-label">Secret Questions</label>
+        <!-- add ngModel and a 'name' attr to register this input in JavaScript representation of this form  -->
+        <!-- use property binding on [ngModel] to set a default value -->
+        <select id="secret" class="form-select" [ngModel]="defaultQuestion" name="secret">
+          <option value="pet">Your first Pet?</option>
+          <option value="teacher">Your first teacher?</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="questionAnswer" class="form-label">Question Answer</label>
+        <textarea name="questionAnswer" id="questionAnswer" rows="3" class="form-control"
+          [(ngModel)]="answer"></textarea>
+      </div>
+      <p>Your reply: {{ answer }}</p>
+      <div class="form-check" *ngFor="let city of cities">
+        <input class="form-check-input" type="radio" name="city" ngModel [value]="city" required />
+        <label class="form-check-label" for="city">{{ city }}</label>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12"></div>
+    <h3>Your Data</h3>
+    <p>Username: {{ user.username }}</p>
+    <p>Mail: {{ user.email }}</p>
+    <P>Secret Question: {{ user.secretQuestion }}</P>
+    <p>Answer: {{ user.answer }}</p>
+    <p>City: {{ user.city }}</p>
+  </div>
+</div>
+<br>
