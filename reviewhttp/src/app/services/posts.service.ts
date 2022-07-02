@@ -4,7 +4,7 @@ import { Observable, BehaviorSubject, throwError } from "rxjs";
 import { map, delay, catchError, tap } from "rxjs/operators";
 import { PostData } from "../models/posts";
 
-const POST_URL = 'https://http-ng-project-5fd9f-default-rtdb.firebaseio.com/post.json';
+const POST_URL = '/post.json';
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
@@ -70,3 +70,4 @@ export class PostsService {
     );
   }
 }
+
