@@ -6,8 +6,9 @@
 4. View child
 5. Content child
 6. Structural directive, *ngIf, &ngFor
-7. dynamically component creation
-8. http client
-9. router and routing
-10. template and reactive forms
-
+7. Dynamically component creation
+8. Gttp client
+9. Router and routing
+10. Template and reactive forms
+11. Modules
+12. Lazy loading
