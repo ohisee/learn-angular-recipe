@@ -12,3 +12,5 @@
 10. Template and reactive forms
 11. Modules
 12. Lazy loading
+13. Preloading Strategy
+
