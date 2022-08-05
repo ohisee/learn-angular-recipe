@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
    * use router link instead of on click event
    * @deprecated
    */
-  public onClick(feature: string): void {
+  onClick(feature: string): void {
     this.featureSelected.emit(feature);
   }
 
@@ -62,3 +62,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscription?.unsubscribe();
   }
 }
+
