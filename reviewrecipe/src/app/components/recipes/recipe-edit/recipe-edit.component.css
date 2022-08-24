@@ -1,0 +1,21 @@
+.top {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.icon-delete {
+  vertical-align: middle;
+}
+
+.row-top {
+  margin-top: 10px;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid #ff0000;
+}
+
+.bottom {
+  margin-bottom: 32px;
+}
