@@ -1,4 +1,5 @@
-### This is an introduction to angular standalong component, decouple from ng module
+### This is an introduction to angular standalone component, decouple from ng module
 
-1. standalong component
+1. standalone component
 2. bootstrap application
+
