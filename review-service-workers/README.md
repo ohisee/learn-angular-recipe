@@ -9,4 +9,5 @@
 set PORT=port_number
 node server.js
 ```
+7. [ngsw-config configuartion](https://angular.io/guide/service-worker-config)
 
