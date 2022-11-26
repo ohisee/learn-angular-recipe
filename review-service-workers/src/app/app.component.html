@@ -1,2 +1,4 @@
 <h2>Posts</h2>
+<div [innerHTML]="customElementContent"></div>
+<app-post [title]="'Some Post Title'" [content]="'Some post content'"></app-post>
 <app-post *ngFor="let post of posts" [content]="post.body" [title]="post.title"></app-post>

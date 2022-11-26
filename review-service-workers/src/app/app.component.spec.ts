@@ -111,4 +111,3 @@ describe('AppComponent test http', () => {
     httpTestingController.verify();
   });
 });
-
