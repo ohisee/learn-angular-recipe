@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-12">
+    <!-- <div class="alert alert-danger col-md-6 mb-3" role="alert" *ngIf="errorMessage">{{ errorMessage }}</div> -->
+    <!-- <app-alert [message]="errorMessage" *ngIf="errorMessage" (close)="onHandleErrorMessage()"></app-alert> -->
+    <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)" *ngIf="!isLoading; else showLoadingSpinner">
+      <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" ngModel name="email" required email />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">Password</label>
+        <input type="password" id="password" class="form-control" ngModel name="password" required minlength="6" />
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit" [disabled]="regForm.invalid">
+          {{isSignInMode ? 'Sign In' : 'Sign Up'}}
+        </button>&nbsp;&nbsp;
+        <button class="btn btn-primary" type="button" (click)="onSwitchMode()">
+          Switch To {{isSignInMode ? 'Sign Up' : 'Sign In'}}</button>
+      </div>
+    </form>  
+  </div>
+</div>
+
+<ng-template #showLoadingSpinner>
+  <div [ngStyle]="{'margin-left': '20%'}">
+    <loading-spinner></loading-spinner>
+  </div>
+</ng-template>
+
+<ng-template appPlaceholder></ng-template>
+
