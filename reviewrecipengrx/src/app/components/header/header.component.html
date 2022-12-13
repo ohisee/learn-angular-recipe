@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <a href="#" class="navbar-brand">Recipe Book</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#recipecontent"
+      (click)="collapsed = !collapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" [ngClass]="{collapse: collapsed}" id="recipecontent">
+      <!-- to the left -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- <li class="nav-item"><a class="nav-link" href="#" (click)="onClick('Recipe')">Recipes</a></li> -->
+        <!-- <li class="nav-item"><a class="nav-link" href="#" (click)="onClick('ShoppingList')">Shopping List</a></li> -->
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link" routerLinkActive="active" routerLink="/recipes">Recipes</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLinkActive="active" routerLink="/auth">Authenticate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/shopping-list']">Shopping List</a>
+        </li>
+      </ul>
+      <!-- to the right -->
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link" [ngStyle]="{'cursor': 'pointer'}" (click)="onClickToSignOut()">Sign Out</a>
+        </li>
+        <li class="nav-item dropdown" appDropdown (showMenuClicked)="showMenu = !showMenu" *ngIf="isAuthenticated">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-target="dropdown">Manage</a>
+          <ul class="dropdown-menu" [class.show]="showMenu" [ngClass]="{'menu-layout': showMenu}">
+            <li><a class="dropdown-item" [ngStyle]="{cursor: 'pointer'}" (click)="onClickToSaveData()">Save Data</a></li>
+            <li><a class="dropdown-item" [ngStyle]="{cursor: 'pointer'}" (click)="onClickToFetchData()">Fetch Data</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
