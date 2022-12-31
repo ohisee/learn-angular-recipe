@@ -30,4 +30,3 @@ ng generate application some_app_name_3
 13. Angular elements `npm install --save @angular/elements@14.2.12`
 14. custom element
 15. domSanitizer
-
