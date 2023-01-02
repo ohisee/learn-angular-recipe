@@ -1,0 +1,17 @@
+<!-- <a [ngStyle]="{cursor: 'pointer'}" class="list-group-item d-flex justify-content-between align-items-start"
+  (click)="onClick()"> -->
+<!-- use relative path to forward id -->
+<a 
+  [routerLink]="[id]"
+  [ngStyle]="{cursor: 'pointer'}" 
+  routerLinkActive="active"
+  class="list-group-item d-flex justify-content-between align-items-start">
+  <div class="me-auto">
+    <h3 class="w-100">{{ recipe?.name }}</h3>
+    <p class="">{{ recipe?.description }}</p>
+  </div>
+  <span class="">
+    <!-- <img src="{{recipe.imagePath}}" > -->
+    <img [src]="recipe?.imagePath" alt="{{recipe?.name}}" class="img-fluid" style="max-height: 100px">
+  </span>
+</a>
