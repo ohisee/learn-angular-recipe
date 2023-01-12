@@ -5,6 +5,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "Kismet/GameplayStatics.h"
+// #include "DrawDebugHelpers.h" // DrawDebugHelpers.h is included by default
 
 // Sets default values
 ATank::ATank()
@@ -14,6 +15,67 @@ ATank::ATank()
 
     CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
     CameraComponent->SetupAttachment(SpringArmComponent);
+}
+
+// Called when the game starts or when spawned
+void ATank::BeginPlay()
+{
+    Super::BeginPlay();
+
+    // cannot store a pointer of parent type in child type, must use Cast function
+    PlayerControllerRef = Cast<APlayerController>(GetController());
+
+    // UWorld *World = GetWorld();
+    // FVector TankCenterLocation = GetActorLocation();
+    // DrawDebugSphere(
+    //     World,
+    //     // Tank location plus vector to get raised up 200 unit in Z axis
+    //     TankCenterLocation + FVector(0.f, 0.f, 200.f),
+    //     // radius of 100
+    //     100.f,
+    //     // number of segments
+    //     12,
+    //     FColor::Red,
+    //     // true to get persistent line
+    //     true,
+    //     // duration lifetime of debug sphere
+    //     30.f);
+}
+
+// Called every frame
+void ATank::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+
+    // Get hit result
+    if (PlayerControllerRef != nullptr)
+    {
+        FHitResult HitResult;
+        PlayerControllerRef->GetHitResultUnderCursor(
+            // use ECC_Visibility ECollisionChannel
+            ECollisionChannel::ECC_Visibility,
+            // false to trace simple, true to tract complex
+            false,
+            // out parameter
+            HitResult);
+
+        UWorld *World = GetWorld();
+        // draw a debug sphere under the cursor
+        // DrawDebugSphere(
+        //     World,
+        //     HitResult.ImpactPoint,
+        //     // radius of 25
+        //     25.f,
+        //     // number of segments
+        //     12,
+        //     FColor::Red,
+        //     // persistent line
+        //     false,
+        //     // duration lifetime of debug sphere
+        //     -1.f);
+
+        RotateTurret(HitResult.ImpactPoint);
+    }
 }
 
 // Called to bind functionality to input

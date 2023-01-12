@@ -37,12 +37,8 @@ public:
 	float BasePawnSpeed = 200.f;
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	void RotateTurret(FVector LookAtTarget);
 
 private:
 	// Cpp forward declaration, to avoid including UCapsuleComponent header file to keep this header file simpler
