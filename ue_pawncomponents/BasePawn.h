@@ -37,8 +37,9 @@ public:
 	float BasePawnSpeed = 200.f;
 
 protected:
-
 	void RotateTurret(FVector LookAtTarget);
+
+	void Fire();
 
 private:
 	// Cpp forward declaration, to avoid including UCapsuleComponent header file to keep this header file simpler
@@ -63,4 +64,8 @@ private:
 	// expose private to event graph
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Super Variables", meta = (AllowPrivateAccess = "true"))
 	int32 EditAnywhereIntPrivate = 100;
+
+	// Forward declare
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	TSubclassOf<class AProjectile> ProjectileClass; // set based on projectile class type
 };

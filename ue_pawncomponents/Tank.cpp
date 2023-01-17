@@ -59,7 +59,7 @@ void ATank::Tick(float DeltaTime)
             // out parameter
             HitResult);
 
-        UWorld *World = GetWorld();
+        // UWorld *World = GetWorld();
         // draw a debug sphere under the cursor
         // DrawDebugSphere(
         //     World,
@@ -89,6 +89,8 @@ void ATank::SetupPlayerInputComponent(UInputComponent *PlayerInputComponent)
     PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
     // &ATank::Turn, address of Tank's turn function
     PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
+    // bind action, fire when button pressed
+    PlayerInputComponent->BindAction(TEXT("Fire"), EInputEvent::IE_Pressed, this, &ATank::Fire);
 }
 
 void ATank::Move(float Value)

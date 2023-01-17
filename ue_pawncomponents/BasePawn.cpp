@@ -3,6 +3,7 @@
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Projectile.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -24,6 +25,7 @@ ABasePawn::ABasePawn()
 	TurretMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turret Mesh"));
 	TurretMeshComponent->SetupAttachment(BaseMeshComponent);
 
+	// must set project spawn point away, not too close, to the component 
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Spawn Point"));
 	ProjectileSpawnPoint->SetupAttachment(TurretMeshComponent);
 }
@@ -47,4 +49,31 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 			UGameplayStatics::GetWorldDeltaSeconds(this),
 			// speed
 			20.f));
+}
+
+// fire projectile
+void ABasePawn::Fire()
+{
+	FVector ProjectileSpawnPointLocation = ProjectileSpawnPoint->GetComponentLocation();
+	FRotator ProjectileSpawnPointRotation = ProjectileSpawnPoint->GetComponentRotation();
+	// DrawDebugSphere(
+	// 	GetWorld(),
+	// 	ProjectileSpawnPointLocation,
+	// 	25.f,
+	// 	12,
+	// 	FColor::Red,
+	// 	false,
+	// 	3.f);
+
+	// Spawn blue print projectile class
+	// auto allows the compiler to figure out its type
+	// auto Projectile is same as AProjectile *Projectile
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+		ProjectileClass,
+		ProjectileSpawnPointLocation,
+		ProjectileSpawnPointRotation);
+
+	// owner is set to the pawn that spawns this projectile
+	// will get the instance of pawn class that owns this projectile 
+	Projectile->SetOwner(this);
 }
