@@ -36,6 +36,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float BasePawnSpeed = 200.f;
 
+	// inherited by Tank and Tower and call in Game Mode class
+	// handles the destruction of this pawn 
+	void HandleDestruction();
+
 protected:
 	void RotateTurret(FVector LookAtTarget);
 

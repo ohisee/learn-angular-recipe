@@ -30,7 +30,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	float MaxHealth = 100.f;
 
-	// curent health
+	// current health
 	float Health = 0;
 
 	// Callback function for binding to the delegate
@@ -48,4 +48,7 @@ private:
 		class AController *Instigator,
 		// actual actor that causes the damage, for example, the projectile itself
 		AActor *DamageCauser);
+
+	// access Toon Tanks game mode
+	class AToonTanksGameMode *ToonTanksGameMode;
 };

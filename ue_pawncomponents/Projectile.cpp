@@ -68,7 +68,7 @@ void AProjectile::OnHit(UPrimitiveComponent *HitComponent,
 	if (OtherActor != nullptr && OtherActor != this && OtherActor != MyOwner)
 	{
 		// will generate damage event,
-		// then OnTakeAnyDamage delegate will broadcast and response to this event,
+		// then OnTakeAnyDamage delegate will broadcase and response to this event,
 		// and then HealthComponent's DamageTaken callback function will be called
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, this, DamageTypeClass);
 		// remove projectile

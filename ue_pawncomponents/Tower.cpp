@@ -18,6 +18,13 @@ void ATower::Tick(float DeltaTime)
     }
 }
 
+// handles the destruction of Tower
+void ATower::HandleDestruction()
+{
+    Super::HandleDestruction();
+    Destroy();
+}
+
 void ATower::BeginPlay()
 {
     Super::BeginPlay();

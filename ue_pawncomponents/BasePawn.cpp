@@ -25,9 +25,16 @@ ABasePawn::ABasePawn()
 	TurretMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turret Mesh"));
 	TurretMeshComponent->SetupAttachment(BaseMeshComponent);
 
-	// must set project spawn point away, not too close, to the component 
+	// must set project spawn point away, not too close, to the component
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Spawn Point"));
 	ProjectileSpawnPoint->SetupAttachment(TurretMeshComponent);
+}
+
+// inherited by Tank and Tower and call in Game Mode class
+// handles the destruction of this pawn
+void ABasePawn::HandleDestruction()
+{
+	// handles visual and sound effects
 }
 
 // rotate turret component
@@ -74,6 +81,6 @@ void ABasePawn::Fire()
 		ProjectileSpawnPointRotation);
 
 	// owner is set to the pawn that spawns this projectile
-	// will get the instance of pawn class that owns this projectile 
+	// will get the instance of pawn class that owns this projectile
 	Projectile->SetOwner(this);
 }

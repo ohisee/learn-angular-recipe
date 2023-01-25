@@ -17,13 +17,23 @@ ATank::ATank()
     CameraComponent->SetupAttachment(SpringArmComponent);
 }
 
+// handles the destruction of Tank
+void ATank::HandleDestruction()
+{
+    Super::HandleDestruction();
+    // hide this Tank, do not destory
+    SetActorHiddenInGame(true);
+    // disable Tank's Tick function
+    SetActorTickEnabled(false);
+}
+
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
     Super::BeginPlay();
 
     // cannot store a pointer of parent type in child type, must use Cast function
-    PlayerControllerRef = Cast<APlayerController>(GetController());
+    PlayerController = Cast<APlayerController>(GetController());
 
     // UWorld *World = GetWorld();
     // FVector TankCenterLocation = GetActorLocation();
@@ -48,10 +58,10 @@ void ATank::Tick(float DeltaTime)
     Super::Tick(DeltaTime);
 
     // Get hit result
-    if (PlayerControllerRef != nullptr)
+    if (PlayerController != nullptr)
     {
         FHitResult HitResult;
-        PlayerControllerRef->GetHitResultUnderCursor(
+        PlayerController->GetHitResultUnderCursor(
             // use ECC_Visibility ECollisionChannel
             ECollisionChannel::ECC_Visibility,
             // false to trace simple, true to tract complex
