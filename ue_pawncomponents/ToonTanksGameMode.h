@@ -21,6 +21,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartGame();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool bWonGame);
+
 private:
 	class ATank *Tank;
 
@@ -30,4 +36,8 @@ private:
 	float StartDelay = 3.f;
 
 	void HandleGameStart();
+
+	int32 TargetTowers = 0;
+
+	int32 GetTargetTowerCount();
 };
