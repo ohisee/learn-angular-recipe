@@ -37,7 +37,7 @@ public:
 	float BasePawnSpeed = 200.f;
 
 	// inherited by Tank and Tower and call in Game Mode class
-	// handles the destruction of this pawn 
+	// handles the destruction of this pawn
 	void HandleDestruction();
 
 protected:
@@ -72,4 +72,15 @@ private:
 	// Forward declare
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	TSubclassOf<class AProjectile> ProjectileClass; // set based on projectile class type
+
+	// hit effect
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class UParticleSystem *HitParticles;
+
+	// hit sound
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class USoundBase *HitSound;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TSubclassOf<class UCameraShakeBase> DestoryedCameraShakeClass;
 };

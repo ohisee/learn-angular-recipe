@@ -2,8 +2,10 @@
 
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Projectile.h"
+#include "Particles/ParticleSystem.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -35,6 +37,20 @@ ABasePawn::ABasePawn()
 void ABasePawn::HandleDestruction()
 {
 	// handles visual and sound effects
+	if (HitParticles != nullptr)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles, GetActorLocation(), GetActorRotation());
+	}
+
+	if (HitSound != nullptr)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
+	}
+
+	if (DestoryedCameraShakeClass != nullptr)
+	{
+		GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(DestoryedCameraShakeClass);
+	}
 }
 
 // rotate turret component
@@ -74,8 +90,8 @@ void ABasePawn::Fire()
 
 	// Spawn blue print projectile class
 	// auto allows the compiler to figure out its type
-	// auto Projectile is same as AProjectile *Projectile
-	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+	// auto Projectile is same as AProjectile *Projectile and auto is for Cpp
+	AProjectile *Projectile = GetWorld()->SpawnActor<AProjectile>(
 		ProjectileClass,
 		ProjectileSpawnPointLocation,
 		ProjectileSpawnPointRotation);
