@@ -1,0 +1,12 @@
+@media screen and (min-width: 997px) {
+  .menu-layout {
+    position: absolute; 
+    inset: 0px auto auto 0px; 
+    margin: 0px; 
+    transform: translate(-78px, 35px);
+  }
+}
+
+/* .nav-link.active {
+  background-color: #e0e0e0;
+} */
