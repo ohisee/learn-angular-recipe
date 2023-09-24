@@ -1,0 +1,12 @@
+.icon {
+  /* opacity: 0; */
+  /* transition: all 900ms ease-out; */
+  cursor: pointer;
+  vertical-align: middle;
+  float: right;
+}
+
+/* .icon:active,
+.icon:hover {
+  opacity: 1;
+} */
