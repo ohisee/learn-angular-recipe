@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/main.css">
+  <title><%= pageTitle %></title>
+</head>
+
+<body>
+  <%- include('includes/nagivation.ejs') %>
+
+  <main>
+    <% if(users.length > 0) { %>
+    <ul class="user__ul">
+      <% for (let user of users) { %>
+      <li><%= user.name %></li>
+      <% } %>
+    </ul>
+    <% } else { %>
+    <h3>No user</h3>
+    <% } %>
+  </main>
+
+</body>
+
+</html>
