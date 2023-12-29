@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/main.css">
+  <title><%= pageTitle %></title>
+</head>
+
+<body>
+  <%- include('includes/nagivation.ejs') %>
+
+  <main>
+    <form action="/add-users" method="POST">
+      <div class="users__form-control">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <button class="btn" type="submit">Add User</button>
+    </form>
+  </main>
+
+</body>
+
+</html>
