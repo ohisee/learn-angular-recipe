@@ -334,6 +334,23 @@
     <textarea name="content" id="content" cols="33" rows="6"></textarea>
   </section>
 
+  <style>
+    p.content {
+      cursor: pointer;
+      color: gold;
+      font-family: sans-serif;
+      transition: all 1000ms ease-in-out;
+    }
+
+    p:hover {
+      color: brown;
+      transform: scaleY(1.8);
+    }
+  </style>
+  <section>
+    <p class="content">text color should be gold</p>
+  </section>
+
   <footer>
     <div>title</div>
   </footer>
