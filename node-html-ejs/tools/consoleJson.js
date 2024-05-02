@@ -26,3 +26,10 @@ function showJson(/** @type String */ input) {
   }, 100);
 }
 
+
+rl.on('line', (input) => {
+  emitter.emit('printEvent', input);
+  showJson(input);
+  rl.close();
+});
+
