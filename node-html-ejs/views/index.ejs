@@ -356,10 +356,22 @@
       transform: scaleY(1.2);
       text-decoration: brown wavy underline;
     }
+
+    span.inline::before {
+      content: "before ";
+      font-family: sans-serif;
+    }
+
+    span.inline::after {
+      content: " after";
+      font-family: sans-serif;
+      color: chocolate;
+    }
   </style>
   <section>
     <div class="sec">
       <p class="content">text color should be gold</p>
+      <span class="inline">Ops</span>
     </div>
   </section>
 
