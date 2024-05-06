@@ -33,3 +33,7 @@ rl.on('line', (input) => {
   rl.close();
 });
 
+emitter.on('printEvent', (input) => {
+  console.log(`Received event`);
+});
+
