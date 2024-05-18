@@ -3,6 +3,7 @@
  */
 const Walker = require('./walker');
 const {fibo, printLine} = require('./reviewExport');
+const {dimension} = require('./dimension');
 
 const check = new Walker('Speed Train', 1000.91);
 
