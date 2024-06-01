@@ -26,3 +26,13 @@ div.backdrop {
   display: none;
 }
 
+a.link {
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  background-color: #8a2be2;
+  color: #f5f5dc;
+  padding: 8px;
+  transition: all 500ms ease-in-out;
+}
+
