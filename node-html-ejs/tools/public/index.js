@@ -29,8 +29,10 @@
 
   searchInputForm.addEventListener('submit', function(event) {
     event.preventDefault();
-
-    console.log(seachInput.value);
+    
+    const el = document.createElement('span')
+    el.textContent = searchInput.value;
+    result.insertAdjacentElement('beforeend', el);
   });
 
 })();
