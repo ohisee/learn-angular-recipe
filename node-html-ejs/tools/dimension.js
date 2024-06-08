@@ -32,9 +32,18 @@ function updateDimension() {
   });
 }
 
+
+/**
+ * Generator
+ */
+function* yDimension() {
+  yield { ...dimension };
+}
+
 module.exports = {
   dimension,
-  updateDimension
+  updateDimension,
+  yDimension
 };
 
 
