@@ -1,5 +1,5 @@
 // js
-(function() {
+(function () {
   /** @type {HTMLDivElement} */
   const main = document.querySelector(".main_header");
   /** @type {HTMLDivElement} */
@@ -9,7 +9,21 @@
   /** @type {HTMLFormElement} */
   const searchInputForm = document.querySelector('.search_input_form');
   /** @type {HTMLInputElement} */
-  const seachInput = document.querySelector('#query');
+  const searchInput = document.querySelector('#query');
+  /** @type {HTMLDivElement} */
+  const result = document.querySelector('.out_result');
+
+  /**
+   * Call service
+   * @returns {Promise<{isReady: boolean}>}
+   */
+  function callService() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ isReady: true });
+      }, 1000)
+    });
+  }
 
   main.addEventListener('click', function () {
     if (main.style.background === '') {
@@ -27,12 +41,24 @@
     backdrop.style.display = 'none';
   });
 
-  searchInputForm.addEventListener('submit', function(event) {
+  searchInputForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    
-    const el = document.createElement('span')
-    el.textContent = searchInput.value;
-    result.insertAdjacentElement('beforeend', el);
+
+    while (result.hasChildNodes()) {
+      result.removeChild(result.lastChild)
+    }
+
+    const spanEl = document.createElement('span')
+    spanEl.textContent = 'waiting...';
+    result.insertAdjacentElement('beforeend', spanEl);
+
+    callService().then(resp => {
+      if (resp.isReady) {
+        result.removeChild(spanEl);
+        spanEl.textContent = 'got a response';
+        result.insertAdjacentElement('beforeend', spanEl);
+      }
+    });
   });
 
 })();
