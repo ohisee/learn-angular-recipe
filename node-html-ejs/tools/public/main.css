@@ -36,3 +36,9 @@ a.link {
   transition: all 500ms ease-in-out;
 }
 
+ul.links {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
