@@ -61,5 +61,28 @@
     });
   });
 
+  searchInput.addEventListener('focus', function(event) {
+    event.preventDefault();
+
+    const sug = document.createElement('span');
+    sug.textContent = 'here is something';
+    resultSuggestion.insertAdjacentElement('beforeend', sug);
+  });
+
+  searchInput.addEventListener('blur', function(event) {
+    event.preventDefault();
+
+    while(resultSuggestion.hasChildNodes()) {
+      resultSuggestion.removeChild(resultSuggestion.lastChild);
+    }
+  });
+
+  searchInput.addEventListener('keyup', function(event) {
+    event.preventDefault();
+    console.log(event.target.value);
+
+    resultSuggestion.textContent = this.value;
+  });
+
 })();
 
