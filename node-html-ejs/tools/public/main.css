@@ -42,3 +42,15 @@ ul.links {
   padding: 0;
 }
 
+div.search__search {
+  display: flex;
+}
+
+.no_border {
+  border: none;
+}
+
+.with_border {
+  border: 1px solid #616060;
+}
+
