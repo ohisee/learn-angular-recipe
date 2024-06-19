@@ -13,6 +13,13 @@ router.get('/service/api/simple', (req, res, next) => {
   });
 });
 
+router.post('/service/api/series', (req, res, next) => {
+  console.log(req.body);
+  res.json({
+    series: ['Something', 'Wonderful']
+  })
+});
+
 module.exports = {
   route: router
 };
