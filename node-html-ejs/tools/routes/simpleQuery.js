@@ -5,7 +5,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/service/api/simple', (req, res, next) => {
+router.get('/service/api/simple/query/options', (req, res, next) => {
   res.json({
     result: [
       'Something', 'Wonderful'
