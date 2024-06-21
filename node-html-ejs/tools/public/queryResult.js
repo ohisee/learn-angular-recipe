@@ -12,16 +12,31 @@
   inputEL.addEventListener('input', function () {
     searchResultDivEl.classList.add('with_border');
 
-    const liEl = document.createElement('li');
-    liEl.innerText = 'new element';
-    searchResultUlEl.insertAdjacentElement('beforeend', liEl);
+    // const liEl = document.createElement('li');
+    // liEl.innerText = 'new element';
+    // searchResultUlEl.insertAdjacentElement('beforeend', liEl);
+
+    if (this.value) {
+      fetch('/service/api/simple/query/options').then(res => res.json()).then(
+        res => {
+          const options = res['result'];
+          if (options) {
+            for (let r of options) {
+              const liEl = document.createElement('li');
+              liEl.innerText = r;
+              searchResultUlEl.insertAdjacentElement('beforeend', liEl);
+            }
+          }
+        }
+      );
+    }
   });
 
   inputEL.addEventListener('blur', function () {
     if (this.value === '') {
       searchResultDivEl.classList.remove('with_border');
 
-      while(searchResultUlEl.hasChildNodes()) {
+      while (searchResultUlEl.hasChildNodes()) {
         searchResultUlEl.removeChild(searchResultUlEl.lastChild);
       }
     }
