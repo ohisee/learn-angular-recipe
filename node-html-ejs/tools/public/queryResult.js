@@ -52,5 +52,9 @@
     }
   });
 
+  searchResultDivEl.addEventListener(resultItemClickedEvent, function (event) {
+    console.log(event.detail.text);
+  });
+
 })();
 
