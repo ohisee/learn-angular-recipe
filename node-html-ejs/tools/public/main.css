@@ -54,3 +54,7 @@ div.search__search {
   border: 1px solid #616060;
 }
 
+div.line__space {
+  margin: 32px 0;
+}
+
