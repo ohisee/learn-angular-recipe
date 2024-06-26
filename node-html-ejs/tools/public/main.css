@@ -58,3 +58,8 @@ div.line__space {
   margin: 32px 0;
 }
 
+div.search__search div.search__result__container div.search__result {
+  /* border: 1px solid #616060; */
+  cursor: pointer;
+}
+
