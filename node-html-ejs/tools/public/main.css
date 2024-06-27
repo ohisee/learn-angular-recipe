@@ -63,3 +63,7 @@ div.search__search div.search__result__container div.search__result {
   cursor: pointer;
 }
 
+div.search__search div.search__result__container div.search__result ul {
+  list-style-type: none;
+}
+
