@@ -6,6 +6,8 @@
   <title>Home Page</title>
   <link rel="stylesheet" href="./main.css">
   <script type="text/javascript" src="./index.js" defer></script>
+  <script src="./queryResult.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 
@@ -54,10 +56,13 @@
     <div class="search__search">
       <div>Search your query</div>&nbsp;
       <div class="search__result__container">
-        <input type="text" name="query_result" id="query_result">
+        <div class="search__input">
+          <i class="material-icons">search</i>
+          <input type="text" name="query_result" id="query_result" placeholder="search">
+        </div>
         <div class="search__result">
           <ul>
-            <li>something</li>
+            <li>first line</li>
             <li>something</li>
           </ul>
         </div>
