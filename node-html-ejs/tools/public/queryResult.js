@@ -8,6 +8,8 @@
   const searchResultDivEl = document.querySelector('.search__result');
   /** @type {HTMLUListElement} */
   const searchResultUlEl = document.querySelector('.search__result ul');
+  /** @type {HTMLDivElement} */
+  const resultOutputEl = document.querySelector('.search__result__output');
   /** @type {String} li clicked event */
   const resultItemClickedEvent = 'resultItemClicked';
 
