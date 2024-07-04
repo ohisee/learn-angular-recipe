@@ -55,8 +55,10 @@
   });
 
   searchResultDivEl.addEventListener(resultItemClickedEvent, function (event) {
-    console.log(event.detail.text);
+    if (event.detail.text) {
+    }
   });
+
 
 })();
 
