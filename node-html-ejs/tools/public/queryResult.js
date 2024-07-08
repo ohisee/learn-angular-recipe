@@ -56,9 +56,15 @@
 
   searchResultDivEl.addEventListener(resultItemClickedEvent, function (event) {
     if (event.detail.text) {
+      while (resultOutputEl.hasChildNodes()) {
+        resultOutputEl.removeChild(resultOutputEl.lastChild);
+      }
+
+      const spanEL = document.createElement('span');
+      spanEL.innerText = event.detail.text;
+      resultOutputEl.insertAdjacentElement('beforeend', spanEL);
     }
   });
-
 
 })();
 
