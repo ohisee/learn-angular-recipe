@@ -13,6 +13,12 @@
   /** @type {String} li clicked event */
   const resultItemClickedEvent = 'resultItemClicked';
 
+  function clearSearchResult() {
+    while (searchResultUlEl.hasChildNodes()) {
+      searchResultUlEl.removeChild(searchResultUlEl.lastChild);
+    }
+  }
+
   inputEL.addEventListener('input', function () {
     searchResultDivEl.classList.add('with_border');
 
