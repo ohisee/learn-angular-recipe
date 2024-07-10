@@ -19,6 +19,13 @@
     }
   }
 
+  function createLoadingElement() {
+    const liSearching = document.createElement('li');
+    liSearching.innerText = 'searching...';
+    searchResultUlEl.appendChild(liSearching);
+    return liSearching;
+  }
+
   inputEL.addEventListener('input', function () {
     searchResultDivEl.classList.add('with_border');
 
