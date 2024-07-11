@@ -35,6 +35,8 @@
 
 
     if (this.value) {
+      clearSearchResult();
+
       fetch('/service/api/simple/query/options').then(res => res.json()).then(
         res => {
           const options = res['result'];
