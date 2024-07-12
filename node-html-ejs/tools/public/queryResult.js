@@ -29,6 +29,8 @@
   inputEL.addEventListener('input', function () {
     searchResultDivEl.classList.add('with_border');
 
+    const liSearching = createLoadingElement();
+
     // const liEl = document.createElement('li');
     // liEl.innerText = 'new element';
     // searchResultUlEl.insertAdjacentElement('beforeend', liEl);
