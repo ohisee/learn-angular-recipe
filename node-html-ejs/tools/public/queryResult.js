@@ -31,11 +31,6 @@
 
     const liSearching = createLoadingElement();
 
-    // const liEl = document.createElement('li');
-    // liEl.innerText = 'new element';
-    // searchResultUlEl.insertAdjacentElement('beforeend', liEl);
-
-
     if (this.value) {
       clearSearchResult();
 
