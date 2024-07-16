@@ -29,10 +29,11 @@
   inputEL.addEventListener('input', function () {
     searchResultDivEl.classList.add('with_border');
 
-    const liSearching = createLoadingElement();
 
     if (this.value) {
       clearSearchResult();
+
+      const liSearching = createLoadingElement();
 
       fetch('/service/api/simple/query/options').then(res => res.json()).then(
         res => {
