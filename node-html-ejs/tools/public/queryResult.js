@@ -39,6 +39,7 @@
         res => {
           const options = res['result'];
           if (options) {
+            searchResultUlEl.removeChild(liSearching);
             for (let resultOption of options) {
               const liEl = document.createElement('li');
               liEl.innerText = resultOption;
