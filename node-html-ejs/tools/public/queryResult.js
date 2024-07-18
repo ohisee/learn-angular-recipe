@@ -34,6 +34,7 @@
 
       const liSearching = createLoadingElement();
 
+      // call v2
       fetch('/service/api/v2/simple/query/options').then(res => res.json()).then(
         res => {
           const options = res['result'];
