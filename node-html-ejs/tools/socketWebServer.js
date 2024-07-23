@@ -7,3 +7,7 @@ const { Server } = require('socket.io');
 const path = require('path');
 const simpleQueryRoute = require('./routes/simpleQuery');
 
+const server = express();
+const sockerServer = createServer(server);
+const io = new Server(sockerServer);
+
