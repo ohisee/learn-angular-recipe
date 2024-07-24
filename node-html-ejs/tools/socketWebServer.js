@@ -11,3 +11,5 @@ const server = express();
 const sockerServer = createServer(server);
 const io = new Server(sockerServer);
 
+const port = 3000;
+
