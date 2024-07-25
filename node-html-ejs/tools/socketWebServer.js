@@ -13,3 +13,5 @@ const io = new Server(sockerServer);
 
 const port = 3000;
 
+server.use(express.json());
+
