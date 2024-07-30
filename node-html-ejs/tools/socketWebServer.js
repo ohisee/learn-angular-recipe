@@ -20,4 +20,7 @@ server.use(express.static(path.join(__dirname, 'public')));
 
 server.use(simpleQueryRoute.route);
 
+io.on('connection', (socket) => {
+  console.log('Socket IO running');
+});
 
