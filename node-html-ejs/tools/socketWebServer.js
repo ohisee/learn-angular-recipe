@@ -24,3 +24,8 @@ io.on('connection', (socket) => {
   console.log('Socket IO running');
 });
 
+
+sockerServer.listen(port, () => {
+  console.log('\x1b[32m%s\x1b[0m', `Server started listening on port ${port}`);
+});
+
