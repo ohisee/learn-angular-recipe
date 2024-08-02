@@ -24,6 +24,11 @@ io.on('connection', (socket) => {
   console.log('Socket IO running');
 });
 
+io.on('connection', (socket) => {
+  socket.on('link clicked', (message) => {
+    console.log(message);
+  });
+});
 
 sockerServer.listen(port, () => {
   console.log('\x1b[32m%s\x1b[0m', `Server started listening on port ${port}`);
