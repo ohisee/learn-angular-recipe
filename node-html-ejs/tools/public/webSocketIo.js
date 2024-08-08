@@ -8,6 +8,8 @@
   const sa = document.querySelector('.link.socket');
 
   sa.addEventListener('click', function (event) {
+    event.preventDefault();
+
   });
 
 })();
