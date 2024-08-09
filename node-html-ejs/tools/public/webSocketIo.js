@@ -10,6 +10,8 @@
   sa.addEventListener('click', function (event) {
     event.preventDefault();
 
+    socket.emit('link clicked', 'emit io event');
+
   });
 
 })();
