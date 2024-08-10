@@ -22,6 +22,10 @@ server.use(simpleQueryRoute.route);
 
 io.on('connection', (socket) => {
   console.log('Socket IO running');
+
+  socket.on('disconnect', () => {
+    console.log('disconneted');
+  });
 });
 
 io.on('connection', (socket) => {
