@@ -14,5 +14,9 @@
 
   });
 
+  socket.on('broadcast message', function (message) {
+    console.log(message);
+  });
+
 })();
 
