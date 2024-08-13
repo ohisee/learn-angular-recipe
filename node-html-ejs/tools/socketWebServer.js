@@ -32,6 +32,10 @@ io.on('connection', (socket) => {
   socket.on('link clicked', (message) => {
     console.log(message);
   });
+
+  socket.on('broadcast message', (message) => {
+    io.emit('broadcast message', message);
+  });
 });
 
 sockerServer.listen(port, () => {
