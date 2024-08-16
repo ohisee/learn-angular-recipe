@@ -6,6 +6,8 @@
 
   /** @type {HTMLAnchorElement} */
   const sa = document.querySelector('.link.socket');
+  /** @type {HTMLAnchorElement} */
+  const bm = document.querySelector('.link.broadcast');
 
   sa.addEventListener('click', function (event) {
     event.preventDefault();
