@@ -8,6 +8,8 @@
   const sa = document.querySelector('.link.socket');
   /** @type {HTMLAnchorElement} */
   const bm = document.querySelector('.link.broadcast');
+  /** @type {HTMLUListElement} */
+  const container = document.querySelector('.message__list');
 
   sa.addEventListener('click', function (event) {
     event.preventDefault();
