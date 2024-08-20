@@ -18,6 +18,10 @@
 
   });
 
+  bm.addEventListener('click', function (event) {
+    event.preventDefault();
+  });
+
   socket.on('broadcast message', function (message) {
     console.log(message);
   });
