@@ -20,6 +20,8 @@
 
   bm.addEventListener('click', function (event) {
     event.preventDefault();
+
+    socket.emit('broadcast message', 'name is runner');
   });
 
   socket.on('broadcast message', function (message) {
