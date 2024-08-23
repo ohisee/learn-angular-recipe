@@ -26,6 +26,7 @@
 
   socket.on('broadcast message', function (message) {
     const liEL = document.createElement('li');
+    liEL.textContent = message;
   });
 
 })();
