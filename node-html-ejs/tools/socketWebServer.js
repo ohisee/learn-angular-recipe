@@ -24,7 +24,8 @@ io.on('connection', (socket) => {
   console.log('Socket IO running');
 
   socket.on('disconnect', () => {
-    console.log('disconneted');
+    //console.log('disconneted');
+    io.emit('more params', { running: true });
   });
 });
 
