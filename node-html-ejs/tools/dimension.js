@@ -15,7 +15,11 @@ const dimension = {
   isReady: false,
   hidden: {
     something: ['car', 'truck']
-  }
+  },
+  pair: [
+    ['type', 'float'],
+    ['extra', '']
+  ]
 };
 
 /**
