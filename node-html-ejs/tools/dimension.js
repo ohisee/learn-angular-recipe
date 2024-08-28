@@ -16,9 +16,10 @@ const dimension = {
   hidden: {
     something: ['car', 'truck']
   },
-  pair: [
+  info: [
+    ['field', 'geo location']
     ['type', 'float'],
-    ['extra', '']
+    ['extra', ''],
   ]
 };
 
