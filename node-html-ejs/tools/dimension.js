@@ -19,6 +19,8 @@ const dimension = {
   info: [
     ['field', 'geo location']
     ['type', 'float'],
+    ['kind', 'col'],
+    ['default', '']
     ['extra', ''],
   ]
 };
