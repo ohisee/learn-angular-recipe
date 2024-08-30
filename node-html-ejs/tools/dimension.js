@@ -20,8 +20,11 @@ const dimension = {
     ['field', 'geo location']
     ['type', 'float'],
     ['kind', 'col'],
+    ['primary', ''],
+    ['comment', ''],
     ['default', '']
     ['extra', ''],
+    ['is null', ''],
   ]
 };
 
