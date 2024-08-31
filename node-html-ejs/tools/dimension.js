@@ -25,6 +25,9 @@ const dimension = {
     ['default', '']
     ['extra', ''],
     ['is null', ''],
+    ['expression', ''],
+    ['policy name', ''],
+    ['privacy domain', '']
   ]
 };
 
