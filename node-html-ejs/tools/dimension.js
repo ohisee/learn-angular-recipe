@@ -17,12 +17,12 @@ const dimension = {
     something: ['car', 'truck']
   },
   info: [
-    ['field', 'geo location']
+    ['field', 'geo location'],
     ['type', 'float'],
     ['kind', 'col'],
     ['primary', ''],
     ['comment', ''],
-    ['default', '']
+    ['default', ''],
     ['extra', ''],
     ['is null', ''],
     ['expression', ''],
