@@ -53,6 +53,13 @@ function* yDimension() {
   yield { ...dimension };
 }
 
+/**
+ * @return Map
+ */
+function dimensionInfo() {
+  return new Map(dimension.info);
+}
+
 module.exports = {
   dimension,
   updateDimension,
