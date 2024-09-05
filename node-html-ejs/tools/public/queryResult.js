@@ -22,8 +22,7 @@
   function createLoadingElement() {
     const liSearching = document.createElement('li');
     liSearching.innerText = 'searching...';
-    searchResultUlEl.appendChild(liSearching);
-    return liSearching;
+    return searchResultUlEl.appendChild(liSearching);
   }
 
   inputEL.addEventListener('input', function () {
@@ -34,12 +33,11 @@
 
       const liSearching = createLoadingElement();
 
-      // call v2
       fetch('/service/api/v2/simple/query/options').then(res => res.json()).then(
         res => {
           const options = res['result'];
           if (options) {
-            searchResultUlEl.removeChild(liSearching);
+            clearSearchResult();
             for (let resultOption of options) {
               const liEl = document.createElement('li');
               liEl.innerText = resultOption;
