@@ -2,6 +2,9 @@
  * @fileoverview web components
  */
 class InfoCustomELement extends HTMLElement {
+
+  static observedAttributes = ['color'];
+
   constructor() {
     super();
   }
