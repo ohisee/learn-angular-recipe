@@ -7,6 +7,10 @@ class InfoCustomELement extends HTMLElement {
 
   constructor() {
     super();
+
+    this._internals = this.attachInternals();
+
+    this.addEventListener('click', this._onClick.bind(this));
   }
 
   connectedCallback() {
