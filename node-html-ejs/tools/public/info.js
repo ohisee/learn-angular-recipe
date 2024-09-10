@@ -13,11 +13,7 @@ class InfoCustomELement extends HTMLElement {
     this.addEventListener('click', this._onClick.bind(this));
   }
 
-  connectedCallback() {
-    this.textContent = 'information';
-    this.style.color = 'darkblue';
-    this.style.fontSize = '32px';
-  }
+  connectedCallback() {}
 
   disconnectedCallback() {}
 
