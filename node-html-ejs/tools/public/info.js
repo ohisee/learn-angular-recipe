@@ -20,6 +20,13 @@ class InfoCustomELement extends HTMLElement {
   attributeChangedCallback() {}
 
   /**
+   * @param {Event} event 
+   */
+  _onClick(event) {
+    console.log('handling event', event.type);
+  }
+
+  /**
    * @param {string | undefined} color 
    */
   _updateRendering(color) {
