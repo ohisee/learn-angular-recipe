@@ -13,7 +13,9 @@ class InfoCustomELement extends HTMLElement {
     this.addEventListener('click', this._onClick.bind(this));
   }
 
-  connectedCallback() {}
+  connectedCallback() {
+    this._updateRendering();
+  }
 
   disconnectedCallback() {}
 
