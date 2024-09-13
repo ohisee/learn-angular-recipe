@@ -19,7 +19,7 @@ class InfoCustomELement extends HTMLElement {
 
   disconnectedCallback() {}
 
-  attributeChangedCallback() {}
+  attributeChangedCallback(name, oldValue, newValue) {}
 
   /**
    * @param {Event} event 
