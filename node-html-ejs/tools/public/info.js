@@ -21,6 +21,9 @@ class InfoCustomELement extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     console.log('name', name, 'oldValue', oldValue, 'newValue', newValue);
+    if (name === 'color' && newValue) {
+      this._updateRendering(newValue);
+    }
   }
 
   /**
