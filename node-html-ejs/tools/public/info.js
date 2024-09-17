@@ -17,7 +17,7 @@ class InfoCustomELement extends HTMLElement {
     this._updateRendering();
   }
 
-  disconnectedCallback() {}
+  disconnectedCallback() { }
 
   attributeChangedCallback(name, oldValue, newValue) {
     console.log('name', name, 'oldValue', oldValue, 'newValue', newValue);
