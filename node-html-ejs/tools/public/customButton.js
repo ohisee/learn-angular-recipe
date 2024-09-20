@@ -9,6 +9,10 @@ class CustomButton extends HTMLButtonElement {
     this.addEventListener('click', this._onClick.bind(this));
   }
 
+  get name() {
+    return this.getAttribute('name');
+  }
+
   /**
    * @param {Event} event 
    */
