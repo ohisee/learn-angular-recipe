@@ -12,6 +12,10 @@ class CustomHtmlButton extends HTMLElement {
     this._internals = this.attachInternals();
   }
 
+  get name() {
+    return this.getAttribute('name');
+  }
+
 }
 
 customElements.define('custom-html-button', CustomHtmlButton);
