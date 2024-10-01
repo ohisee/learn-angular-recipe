@@ -16,6 +16,10 @@ class CustomHtmlButton extends HTMLElement {
     return this.getAttribute('name');
   }
 
+  get disabled() {
+    return this.getAttribute('disabled');
+  }
+
 }
 
 customElements.define('custom-html-button', CustomHtmlButton);
