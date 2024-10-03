@@ -98,3 +98,12 @@ div.search__search div.search__result__container div.search__result ul {
   list-style-type: none;
 }
 
+custom-html-button {
+  margin: 16px;
+  padding: 16px;
+  border: 1px solid #ddd2d2;
+  cursor: pointer;
+  background-color: #ccc;
+  box-shadow: 10px 5px 5px #ddd2d2;
+}
+
