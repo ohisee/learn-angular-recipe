@@ -98,6 +98,10 @@ div.search__search div.search__result__container div.search__result ul {
   list-style-type: none;
 }
 
+info-element {
+  margin: 16px;
+}
+
 custom-html-button {
   margin: 16px;
   padding: 16px;
