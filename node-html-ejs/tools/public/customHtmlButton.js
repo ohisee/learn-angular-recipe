@@ -24,6 +24,17 @@ class CustomHtmlButton extends HTMLElement {
     this.toggleAttribute('disabled', Boolean(flag)); 
   }
 
+  /**
+   * @param {Event} event 
+   */
+  _onClick(event) {
+    event.preventDefault();
+    const pointerEvent = new PointerEvent('click', {
+      bubbles: true,
+      cancelable: true
+    });
+    this.dispatchEvent(pointerEvent);
+  }
 }
 
 customElements.define('custom-html-button', CustomHtmlButton);
