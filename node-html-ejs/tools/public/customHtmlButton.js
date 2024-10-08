@@ -24,6 +24,14 @@ class CustomHtmlButton extends HTMLElement {
     this.toggleAttribute('disabled', Boolean(flag)); 
   }
 
+  connectedCallback() {
+
+  }
+
+  disconnectedCallback() {
+    
+  }
+
   /**
    * @param {Event} event 
    */
