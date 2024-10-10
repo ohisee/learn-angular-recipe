@@ -29,7 +29,7 @@ class CustomHtmlButton extends HTMLElement {
   }
 
   disconnectedCallback() {
-    
+    console.log('disconnect call back');
   }
 
   /**
