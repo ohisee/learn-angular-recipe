@@ -25,7 +25,7 @@ class CustomHtmlButton extends HTMLElement {
   }
 
   connectedCallback() {
-
+    console.log('call back');
   }
 
   disconnectedCallback() {
