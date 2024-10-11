@@ -25,11 +25,11 @@ class CustomHtmlButton extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log('call back');
+    console.log('connected call back');
   }
 
   disconnectedCallback() {
-    console.log('disconnect call back');
+    console.log('disconnected call back');
   }
 
   /**
