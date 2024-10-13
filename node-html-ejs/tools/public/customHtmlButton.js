@@ -10,6 +10,8 @@ class CustomHtmlButton extends HTMLElement {
     super();
 
     this._internals = this.attachInternals();
+
+    this.addEventListener('click', this._onClick.bind(this));
   }
 
   get name() {
@@ -21,15 +23,14 @@ class CustomHtmlButton extends HTMLElement {
   }
 
   set disabled(flag) {
-    this.toggleAttribute('disabled', Boolean(flag)); 
+    this.toggleAttribute('disabled', Boolean(flag));
   }
 
   connectedCallback() {
-    console.log('connected call back');
+    this.innerHTML = `<span>Custom Button</span>`;
   }
 
   disconnectedCallback() {
-    console.log('disconnected call back');
   }
 
   /**
@@ -37,7 +38,7 @@ class CustomHtmlButton extends HTMLElement {
    */
   _onClick(event) {
     event.preventDefault();
-    const pointerEvent = new PointerEvent('click', {
+    const pointerEvent = new PointerEvent('pointerdown', {
       bubbles: true,
       cancelable: true
     });
