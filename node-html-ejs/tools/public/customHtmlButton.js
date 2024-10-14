@@ -27,7 +27,7 @@ class CustomHtmlButton extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = `<span>Custom Button</span>`;
+    this.innerHTML = `<span>Custom Button ${this.name}</span>`;
   }
 
   disconnectedCallback() {
