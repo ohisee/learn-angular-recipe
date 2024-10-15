@@ -12,6 +12,8 @@
   const searchInput = document.querySelector('#query');
   /** @type {HTMLDivElement} */
   const result = document.querySelector('.out_result');
+  /** @type {HTMLDivElement} */
+  const customElementContainer = document.querySelector('.custom__component__container');
 
   /**
    * Call service
