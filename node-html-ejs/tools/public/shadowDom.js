@@ -18,7 +18,7 @@ class ShowYourName extends HTMLElement {
 
   _createStyleSheet() {
     const sheet = new CSSStyleSheet();
-    sheet.replaceSync(`p { font-family: sans-serif; margin: 16px; }`);
+    sheet.replaceSync(`p { font-family: sans-serif; margin: 16px; padding: 16px; }`);
     return sheet;
   }
 }
