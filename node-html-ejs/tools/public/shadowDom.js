@@ -16,6 +16,9 @@ class ShowYourName extends HTMLElement {
     shadow.adoptedStyleSheets = [sheet];
   }
 
+  /**
+   * @returns CSSStyleSheet
+   */
   _createStyleSheet() {
     const sheet = new CSSStyleSheet();
     sheet.replaceSync(`p { font-family: sans-serif; margin: 16px; padding: 16px; }`);
