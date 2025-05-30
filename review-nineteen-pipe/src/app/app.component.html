@@ -1,0 +1,37 @@
+<main>
+  <article class="temperatures">
+    <header>
+      <img src="temp-icon.png" alt="Thermometer icon" />
+      <div>
+        <h2>Current Temperatures</h2>
+        <p>{{ currentDate | date:'medium' }}</p>
+      </div>
+    </header>
+    <p>New York: {{ currentTemperaturs.newYork | temperature:'cel':'fah' }}</p>
+    <p>Berlin: {{ currentTemperaturs.berlin | temperature:'cel' }}</p>
+    <p>Paris: {{ currentTemperaturs.paris | temperature:'fah':'cel' }}</p>
+    <p>Chicago: {{ currentTemperaturs.chicago | temperature:'fah' }}</p>
+    <p>San Jose: {{ currentTemperaturs.sanJose | number: '1.1-3' }}</p>
+    <p>San Mateo: {{ currentTemperaturs.sanJose | number: '1.1-2' }}</p>
+  </article>
+
+  <article class="temperatures">
+    <header>
+      <img src="temp-icon.png" alt="Thermometer icon" />
+      <div>
+        <h2>Historic Temperatures</h2>
+        <p>Berlin</p>
+      </div>
+    </header>
+    <ul>
+      <!-- @for (temperature of historicTemperatures | sort:'desc'; track temperature) {
+      <li (click)="onReset($index)" [style]="{'cursor': 'pointer'}">{{ temperature | temperature:'cel' }}</li>
+      } -->
+
+      <!-- not using sort pipe, does not mess up index -->
+      @for (temperature of historicTemperatures; track temperature) {
+      <li (click)="onReset($index)" [style]="{'cursor': 'pointer'}">{{ temperature | temperature:'cel' }}</li>
+      }
+    </ul>
+  </article>
+</main>
