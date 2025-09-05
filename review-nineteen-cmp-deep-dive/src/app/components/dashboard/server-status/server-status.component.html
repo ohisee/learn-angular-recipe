@@ -1,0 +1,19 @@
+<div [class]="{
+    status: true,
+    'status-online': currentStatusSignal() === 'online',
+    'status-offline': currentStatusSignal() === 'offline',
+    'status-unknown': currentStatusSignal() === 'unknown'
+  }" [style]="{
+    fontSize: '16px'
+  }">
+  @if (currentStatusSignal() === 'online') {
+  <p>Servers are online</p>
+  <p>All systems are operational.</p>
+  } @else if (currentStatusSignal() === 'offline') {
+  <p>Servers are offline</p>
+  <p>Functionality should be restored soon.</p>
+  } @else {
+  <p>Server status is unknown</p>
+  <p>Fetching server status failed.</p>
+  }
+</div>
